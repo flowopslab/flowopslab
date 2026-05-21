@@ -25,6 +25,7 @@ Payment is accepted in USDT/USDC on EVM after scope confirmation.
 
 - Website: https://polyflow-samples.netlify.app/services.html
 - Email: karawatkin772@gmail.com
+- X: https://x.com/flowopslab
 - Telegram samples: https://t.me/PolyFlowSamples
 - Telegram bot: https://t.me/PolyFlowScoutBot
 
