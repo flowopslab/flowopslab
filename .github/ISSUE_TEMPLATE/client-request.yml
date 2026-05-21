@@ -1,0 +1,29 @@
+name: Client request
+description: Request a small FlowOps Lab job
+title: "[Request] "
+labels: ["client-request"]
+body:
+  - type: dropdown
+    id: service
+    attributes:
+      label: Service type
+      options:
+        - Data cleanup
+        - Landing page fix
+        - Lightweight automation
+        - Historical Polymarket analysis
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: What do you need done?
+      description: Describe the concrete outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: links
+    attributes:
+      label: Relevant URL, sample, or notes
+      description: Do not include sensitive secrets or private data.
