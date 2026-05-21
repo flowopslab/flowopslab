@@ -1,0 +1,33 @@
+# FlowOps Lab
+
+Same-day data cleanup, landing page fixes, and lightweight automation for small, scoped jobs.
+
+FlowOps Lab is built for people who need a practical fix today: a messy CSV cleaned, a landing page tightened, a lead form wired up, a Telegram intake bot configured, or a historical market-flow snapshot turned into a readable report.
+
+## Services
+
+- Data cleanup and spreadsheet repair
+- Landing page teardown and same-day copy fixes
+- Lightweight lead intake forms and Telegram bot setup
+- Small workflow automation
+- Historical Polymarket market-flow analysis
+
+## Pricing
+
+- Starter jobs: $25 USDT/USDC
+- Full same-day fix or setup: $50 USDT/USDC
+- Polymarket quick scan: $19 USDT
+- Polymarket full one-market report: $50 USDT
+
+Payment is accepted in USDT/USDC on EVM after scope confirmation.
+
+## Contact
+
+- Website: https://polyflow-samples.netlify.app/services.html
+- Email: karawatkin772@gmail.com
+- Telegram samples: https://t.me/PolyFlowSamples
+- Telegram bot: https://t.me/PolyFlowScoutBot
+
+## Compliance
+
+Polymarket work is historical market-flow analysis only. It is not financial advice, not betting advice, and never includes profit guarantees.
