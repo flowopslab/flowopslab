@@ -40,6 +40,8 @@ Typical deliverables:
 
 Pricing: usually $50 for a focused setup.
 
+Wallet for USDT/USDC on EVM: `0x8B9D88f5868B5D576524Abd53a4325F120e9aD2b`
+
 ## Historical Polymarket Analysis
 
 For historical market-flow snapshots using public and provided transaction data.
