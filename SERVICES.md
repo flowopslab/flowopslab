@@ -42,6 +42,23 @@ Pricing: usually $50 for a focused setup.
 
 Wallet for USDT/USDC on EVM: `0x8B9D88f5868B5D576524Abd53a4325F120e9aD2b`
 
+## n8n Workflow Automation
+
+For one focused workflow that needs a clear trigger, one destination, and a tested success path.
+
+Typical deliverables:
+
+- Webhook or form intake
+- Lead routing
+- Google Sheets or Airtable sync
+- Telegram or email notification
+- One cleanup or validation step
+- Handoff notes and limits
+
+Pricing: $50 for one focused n8n workflow.
+
+Request page: https://polyflow-samples.netlify.app/n8n-automation.html
+
 ## Historical Polymarket Analysis
 
 For historical market-flow snapshots using public and provided transaction data.
