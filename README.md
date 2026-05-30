@@ -10,6 +10,7 @@ FlowOps Lab is built for people who need a practical fix today: a messy CSV clea
 - Landing page teardown and same-day copy fixes
 - Lightweight lead intake forms and Telegram bot setup
 - n8n workflow automation for one focused trigger-to-output flow
+- OSS bounty, CI, GitHub Actions, GitLab CI, Makefile, and test patch sprints
 - Small workflow automation
 - Historical Polymarket market-flow analysis
 
@@ -30,7 +31,7 @@ Confirm the EVM network before sending.
 
 - Website: https://polyflow-samples.netlify.app/services.html
 - n8n automation: https://polyflow-samples.netlify.app/n8n-automation.html
-- Email: karawatkin772@gmail.com
+- OSS/CI patch sprint: https://polyflow-samples.netlify.app/oss-bounty-patch.html
 - X: https://x.com/flowopslab
 - Telegram samples: https://t.me/PolyFlowSamples
 - Telegram bot: https://t.me/PolyFlowScoutBot
