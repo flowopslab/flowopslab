@@ -1,0 +1,306 @@
+From 50a1ca2c675692d2fdbf44a870f7934c11ead213 Mon Sep 17 00:00:00 2001
+From: FlowOps Lab <flowopslab@users.noreply.github.com>
+Date: Sun, 31 May 2026 03:03:11 +0800
+Subject: [PATCH] ci: add shared sample validation gate
+
+---
+ .github/workflows/build.yml    |   3 +
+ .github/workflows/pytest.yml   |  10 +++-
+ .gitlab-ci.yml                 |  13 +++++
+ Makefile                       |  22 +++++--
+ docs/sample-validation.md      |  20 +++++++
+ tests/test_makefile_targets.py |  45 +++++++++++++++
+ tools/fortifications.py        | 101 +++++++++++++++++++++++++++++++++
+ 7 files changed, 209 insertions(+), 5 deletions(-)
+ create mode 100644 .gitlab-ci.yml
+ create mode 100644 docs/sample-validation.md
+ create mode 100644 tests/test_makefile_targets.py
+ create mode 100644 tools/fortifications.py
+
+diff --git a/.github/workflows/build.yml b/.github/workflows/build.yml
+index f3f3e31..0c46f72 100644
+--- a/.github/workflows/build.yml
++++ b/.github/workflows/build.yml
+@@ -11,6 +11,9 @@ on:
+       - main
+       - develop
+ 
++permissions:
++  contents: read
++
+ jobs:
+   build-project:
+     runs-on: ubuntu-latest
+diff --git a/.github/workflows/pytest.yml b/.github/workflows/pytest.yml
+index 678efcf..2beaf7c 100644
+--- a/.github/workflows/pytest.yml
++++ b/.github/workflows/pytest.yml
+@@ -2,6 +2,9 @@ name: pytest-qtop
+ 
+ on: push
+ 
++permissions:
++  contents: read
++
+ jobs:
+   run-pytest:
+     runs-on: ubuntu-latest
+@@ -11,4 +14,9 @@ jobs:
+         with:
+           python-version: '3.10'
+       - run: pip install pytest
+-      - run: python -m pytest
+\ No newline at end of file
++      - run: make ci-sample-validation SLURM_OUTPUT_DIR=build/qtop-slurm-rendered
++      - uses: actions/upload-artifact@v4
++        if: always()
++        with:
++          name: qtop-slurm-rendered
++          path: build/qtop-slurm-rendered/
+diff --git a/.gitlab-ci.yml b/.gitlab-ci.yml
+new file mode 100644
+index 0000000..593af5a
+--- /dev/null
++++ b/.gitlab-ci.yml
+@@ -0,0 +1,13 @@
++stages:
++  - test
++
++sample-validation:
++  image: python:3.10
++  stage: test
++  script:
++    - pip install pytest
++    - make ci-sample-validation SLURM_OUTPUT_DIR=build/qtop-slurm-rendered
++  artifacts:
++    when: always
++    paths:
++      - build/qtop-slurm-rendered/
+diff --git a/Makefile b/Makefile
+index 035af91..bc098cb 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,18 +1,32 @@
+-.PHONY: test test-pbs-samples test-slurm-samples
++.PHONY: help test test-pbs-samples test-slurm-samples sample-gate ci-sample-validation fortifications
+ 
+ PYTHON ?= python3
++FORTIFY_BASE ?= origin/develop
+ PBS_SAMPLES_DIR ?= ../qtop-test-repo/qtop5/results
+ PBS_SAMPLE_LIMIT ?= 100
+ PBS_OUTPUT_DIR ?= /tmp/qtop-pbs-rendered
+ SLURM_SAMPLES_DIR ?= tests/plugins/slurm_samples
+ SLURM_OUTPUT_DIR ?= /tmp/qtop-slurm-rendered
+ 
+-test:
++.DEFAULT_GOAL := help
++
++help: ## Show available Makefile targets.
++	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
++		| awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-24s\033[0m %s\n", $$1, $$2}'
++
++test: ## Run the unit test suite.
+ 	$(PYTHON) -m pytest
+ 
+-test-pbs-samples:
++test-pbs-samples: ## Render archived PBS samples from PBS_SAMPLES_DIR.
+ 	$(PYTHON) tools/validate_pbs_samples.py $(PBS_SAMPLES_DIR) --limit $(PBS_SAMPLE_LIMIT) --output $(PBS_OUTPUT_DIR)
+ 
+-test-slurm-samples:
++test-slurm-samples: ## Run the fast in-repo Slurm command-trace sample gate.
+ 	$(PYTHON) -m pytest tests/plugins/test_slurm.py
+ 	$(PYTHON) tools/validate_slurm_samples.py $(SLURM_SAMPLES_DIR) --output $(SLURM_OUTPUT_DIR)
++
++sample-gate: test-slurm-samples ## Shared fast sample-validation gate for GitHub and GitLab.
++
++fortifications: ## Inspect branch diff for unsafe text or generated/binary changes.
++	$(PYTHON) tools/fortifications.py --base $(FORTIFY_BASE)
++
++ci-sample-validation: fortifications sample-gate ## CI entry point shared by GitHub and GitLab.
+diff --git a/docs/sample-validation.md b/docs/sample-validation.md
+new file mode 100644
+index 0000000..8da48bb
+--- /dev/null
++++ b/docs/sample-validation.md
+@@ -0,0 +1,20 @@
++# Sample Validation Gate
++
++The fast CI sample gate is intentionally routed through one Makefile target so GitHub and GitLab do not drift.
++
++```bash
++make ci-sample-validation
++```
++
++This target runs:
++
++1. `make fortifications`, which checks the branch diff for hidden Unicode/control characters and generated or binary-looking changes that need manual review.
++2. `make sample-gate`, which currently runs the in-repository Slurm command-trace checks through `tests/plugins/test_slurm.py` and `tools/validate_slurm_samples.py`.
++
++The PBS archive sweep remains available for environments that have the external sample corpus:
++
++```bash
++make test-pbs-samples PBS_SAMPLES_DIR=../qtop-test-repo/qtop5/results PBS_SAMPLE_LIMIT=100
++```
++
++GitHub Actions and GitLab CI both call the same `make ci-sample-validation` entry point. Rendered sample output is written to `SLURM_OUTPUT_DIR` so CI can publish logs or artifacts for reviewers.
+diff --git a/tests/test_makefile_targets.py b/tests/test_makefile_targets.py
+new file mode 100644
+index 0000000..fae9051
+--- /dev/null
++++ b/tests/test_makefile_targets.py
+@@ -0,0 +1,45 @@
++##
++## qtop is a tool to monitor queuing systems - https://github.com/qtop/qtop
++##
++## SPDX-License-Identifier: MIT
++##
++
++import subprocess
++from pathlib import Path
++
++
++REPO_ROOT = Path(__file__).resolve().parents[1]
++
++
++def run_make(*targets):
++    return subprocess.run(
++        ["make", *targets],
++        cwd=str(REPO_ROOT),
++        text=True,
++        stdout=subprocess.PIPE,
++        stderr=subprocess.PIPE,
++    )
++
++
++def test_make_help_lists_ci_sample_gate_and_fortifications():
++    completed = run_make("help")
++
++    assert completed.returncode == 0, completed.stderr
++    assert "sample-gate" in completed.stdout
++    assert "fortifications" in completed.stdout
++    assert "ci-sample-validation" in completed.stdout
++
++
++def test_make_fortifications_can_compare_clean_tree_to_head():
++    completed = run_make("fortifications", "FORTIFY_BASE=HEAD")
++
++    assert completed.returncode == 0, completed.stdout + completed.stderr
++    assert "OK" in completed.stdout
++
++
++def test_make_fortifications_falls_back_when_base_ref_is_missing():
++    completed = run_make("fortifications", "FORTIFY_BASE=missing/base-ref")
++
++    assert completed.returncode == 0, completed.stdout + completed.stderr
++    assert "base ref not found" in completed.stdout
++    assert "OK" in completed.stdout
+diff --git a/tools/fortifications.py b/tools/fortifications.py
+new file mode 100644
+index 0000000..67f3de3
+--- /dev/null
++++ b/tools/fortifications.py
+@@ -0,0 +1,101 @@
++#!/usr/bin/env python3
++##
++## qtop is a tool to monitor queuing systems - https://github.com/qtop/qtop
++##
++## SPDX-License-Identifier: MIT
++##
++"""Lightweight branch-diff checks used by the CI sample gate."""
++
++import argparse
++import re
++import subprocess
++import sys
++
++
++CONTROL_OR_BIDI = re.compile(
++    r"[\u202a\u202b\u202c\u202d\u202e\u2066\u2067\u2068\u2069]"
++    r"|[^\x09\x0a\x0d\x20-\x7e]"
++)
++GENERATED_OR_BINARY = re.compile(
++    r"(^|/)(m4|autogen|configure|Makefile\.in|cmake|tests?/files|fixtures?)/"
++    r"|(\.xz|\.lzma|\.gz|\.bin|\.dat)$",
++    re.IGNORECASE,
++)
++
++
++def git_output(*args, check=True):
++    completed = subprocess.run(
++        ["git", *args],
++        text=True,
++        stdout=subprocess.PIPE,
++        stderr=subprocess.PIPE,
++    )
++    if check and completed.returncode:
++        raise RuntimeError(completed.stderr.strip() or "git command failed")
++    return completed
++
++
++def git_stdout(*args):
++    return git_output(*args).stdout
++
++
++def resolve_base(base):
++    if base == "HEAD":
++        return base
++    completed = git_output("rev-parse", "--verify", "--quiet", base, check=False)
++    if completed.returncode == 0:
++        return base
++    print("base ref not found: %s; falling back to HEAD" % base)
++    return "HEAD"
++
++
++def diff_range(base):
++    if base == "HEAD":
++        return "HEAD"
++    return "%s...HEAD" % base
++
++
++def check_diff_text(base):
++    print("== weird unicode/control chars ==")
++    diff = git_stdout("diff", "-U0", diff_range(base))
++    findings = []
++    for line_no, line in enumerate(diff.splitlines(), 1):
++        if not line.startswith("+") or line.startswith("+++"):
++            continue
++        if CONTROL_OR_BIDI.search(line):
++            findings.append("%s:%s" % (line_no, line[:160]))
++    if findings:
++        print("\n".join(findings))
++        return 1
++    print("none")
++    return 0
++
++
++def check_changed_paths(base):
++    print("== unexpected binary/generated/build changes ==")
++    names = git_stdout("diff", "--name-only", diff_range(base)).splitlines()
++    findings = [name for name in names if GENERATED_OR_BINARY.search(name)]
++    if findings:
++        print("\n".join(findings))
++        print("Manual review required")
++        return 1
++    print("none")
++    return 0
++
++
++def main():
++    parser = argparse.ArgumentParser()
++    parser.add_argument("--base", default="origin/develop")
++    args = parser.parse_args()
++
++    base = resolve_base(args.base)
++    failed = check_diff_text(base)
++    failed |= check_changed_paths(base)
++    if failed:
++        return failed
++    print("OK")
++    return 0
++
++
++if __name__ == "__main__":
++    sys.exit(main())
+-- 
+2.50.1 (Apple Git-155)
+
