@@ -94,6 +94,26 @@ Wallet for USDT/USDC on EVM: `0x8B9D88f5868B5D576524Abd53a4325F120e9aD2b`
 
 Request page: https://polyflow-samples.netlify.app/services.html
 
+## Python Backtest / Strategy-code Debugging Sprint
+
+For one focused Python backtest, rotation strategy, portfolio script, or strategy-code debugging task where the need is code correctness rather than trading advice.
+
+Typical deliverables:
+
+- Reproducible bug report
+- One narrow code cleanup or patch where possible
+- Data-shape and assumptions check
+- Testable before/after command
+- Handoff notes and limits
+
+Pricing: $50 for one focused Python backtest / strategy-code debugging sprint.
+
+Boundary: code debugging only; not financial advice, no trading advice, and no profit guarantee.
+
+Wallet for USDT/USDC on EVM: `0x8B9D88f5868B5D576524Abd53a4325F120e9aD2b`
+
+Request page: https://polyflow-samples.netlify.app/services.html
+
 ## n8n Workflow Automation
 
 For one focused workflow that needs a clear trigger, one destination, and a tested success path.
