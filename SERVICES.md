@@ -114,6 +114,28 @@ Wallet for USDT/USDC on EVM: `0x8B9D88f5868B5D576524Abd53a4325F120e9aD2b`
 
 Request page: https://polyflow-samples.netlify.app/services.html
 
+## Market Data / OHLCV Validation Sprint
+
+For one focused public-source market-data feed, BTC/ETH OHLCV validation, or API handoff task where the need is data engineering rather than trading advice.
+
+Typical deliverables:
+
+- Public-source fetch skeleton
+- Schema and freshness checks
+- Small BTC/ETH or stock/crypto validation sample
+- JSON/CSV handoff notes
+- Failure and retry caveats
+
+Pricing: $50 for one focused market-data / OHLCV validation sprint.
+
+Public proof script: https://raw.githubusercontent.com/flowopslab/flowopslab/main/samples/market-data-ohlcv-validator.py
+
+Boundary: data engineering only; not financial advice, no trading advice, and no profit guarantee.
+
+Wallet for USDT/USDC on EVM: `0x8B9D88f5868B5D576524Abd53a4325F120e9aD2b`
+
+Request page: https://polyflow-samples.netlify.app/services.html
+
 ## n8n Workflow Automation
 
 For one focused workflow that needs a clear trigger, one destination, and a tested success path.
