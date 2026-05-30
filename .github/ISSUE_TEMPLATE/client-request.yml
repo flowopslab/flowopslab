@@ -11,6 +11,9 @@ body:
         - Data cleanup
         - Landing page fix
         - Lightweight automation
+        - AI automation / DevOps triage
+        - OSS bounty review / fix sprint
+        - n8n workflow automation
         - Historical Polymarket analysis
         - Other
     validations:
@@ -20,6 +23,27 @@ body:
     attributes:
       label: What do you need done?
       description: Describe the concrete outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: public_repo
+    attributes:
+      label: Public repo or issue URL
+      description: Use public repos or redacted samples only. Do not include sensitive secrets or private data.
+    validations:
+      required: false
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: List the commands, checks, or visible outcome that prove the sprint is complete.
+    validations:
+      required: true
+  - type: textarea
+    id: payment
+    attributes:
+      label: Payment or award flow
+      description: Confirm whether payment is direct USDT/USDC on EVM, platform escrow, or a public bounty/award flow.
     validations:
       required: true
   - type: textarea
