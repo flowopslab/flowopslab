@@ -19,7 +19,11 @@ FlowOps Lab is built for people who need a practical fix today: a messy CSV clea
 - Polymarket quick scan: $19 USDT
 - Polymarket full one-market report: $50 USDT
 
-Payment is accepted in USDT/USDC on EVM after scope confirmation.
+Payment is accepted in USDT/USDC on EVM.
+
+Wallet: `0x8B9D88f5868B5D576524Abd53a4325F120e9aD2b`
+
+Confirm the EVM network before sending.
 
 ## Contact
 
