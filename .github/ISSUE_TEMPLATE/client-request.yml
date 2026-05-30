@@ -13,6 +13,7 @@ body:
         - Lightweight automation
         - AI automation / DevOps triage
         - Web research / lead-list QA
+        - Spreadsheet QA / Google Sheets evaluator
         - OSS bounty review / fix sprint
         - n8n workflow automation
         - Historical Polymarket analysis
