@@ -76,6 +76,22 @@ Request page: https://polyflow-samples.netlify.app/oss-bounty-patch.html
 
 Recent public proof patch: https://raw.githubusercontent.com/flowopslab/flowopslab/main/bounties/qtop-433-ci-sample-validation.patch
 
+## OSS Bounty Review / Fix Sprint
+
+For one focused public-repo bounty or PR that needs checklist review, maintainer handoff notes, smoke-test planning, or a narrow follow-up fix.
+
+Typical deliverables:
+
+- Bounty checklist mapping
+- PR file/review surface summary
+- Merge blocker notes
+- Smoke-test or static-validation checklist
+- Optional narrow fix patch for confirmed gaps
+
+Pricing: $50 for one focused public-repo bounty review/fix sprint.
+
+Recent public proof review: https://github.com/flowopslab/flowopslab/blob/main/bounties/openisopix-pr3-review.md
+
 ## Historical Polymarket Analysis
 
 For historical market-flow snapshots using public and provided transaction data.
