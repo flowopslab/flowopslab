@@ -51,6 +51,15 @@ FlowOps Lab sells same-day, tightly scoped technical work with public proof, pla
 - Good fit: spreadsheet QA, Excel evaluator tasks, Google Sheets evaluator tasks, formula audits, workbook quality checks, duplicate checks, and source-linked cleanup.
 - Deliverable: issue list, formula/formatting notes, cleaned sample rows where useful, source links, and a concise QA handoff.
 
+### Python backtest / strategy-code debugging sprint
+
+- Price: $50 USDT/USDC
+- Page: https://polyflow-samples.netlify.app/services.html
+- Form name: service-request
+- Good fit: Python backtest scripts, rotation strategy code, portfolio data pipeline bugs, pandas/numpy cleanup, reproducibility gaps, and testable strategy-code debugging.
+- Deliverable: reproducible bug report, one narrow patch where possible, test command, data-shape notes, and code-level handoff.
+- Boundary: not financial advice, no trading advice, and no profit guarantee.
+
 ### n8n workflow automation sprint
 
 - Price: $50 USDT/USDC
