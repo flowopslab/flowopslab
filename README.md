@@ -13,6 +13,7 @@ FlowOps Lab is built for people who need a practical fix today: a messy CSV clea
 - Web research, lead-list QA, and lightweight desk research
 - Spreadsheet QA, Excel evaluator, and Google Sheets evaluator sprints
 - Python backtest, rotation-strategy code debugging, and strategy-code debugging
+- Market-data API, BTC/ETH OHLCV validation, and data-feed skeletons
 - n8n workflow automation for one focused trigger-to-output flow
 - OSS bounty, CI, GitHub Actions, GitLab CI, Makefile, and test patch sprints
 - OSS bounty review, maintainer handoff, Godot/GDScript review-assist, and narrow fix sprints
@@ -28,6 +29,7 @@ FlowOps Lab is built for people who need a practical fix today: a messy CSV clea
 - Research / lead-list QA sprint: $50 USDT/USDC
 - Spreadsheet QA / Google Sheets evaluator sprint: $50 USDT/USDC
 - Python backtest / strategy-code debugging sprint: $50 USDT/USDC
+- Market-data / OHLCV validation sprint: $50 USDT/USDC
 
 Payment is accepted in USDT/USDC on EVM.
 
