@@ -11,6 +11,7 @@ FlowOps Lab is built for people who need a practical fix today: a messy CSV clea
 - Lightweight lead intake forms and Telegram bot setup
 - n8n workflow automation for one focused trigger-to-output flow
 - OSS bounty, CI, GitHub Actions, GitLab CI, Makefile, and test patch sprints
+- OSS bounty review, maintainer handoff, Godot/GDScript review-assist, and narrow fix sprints
 - Small workflow automation
 - Historical Polymarket market-flow analysis
 
