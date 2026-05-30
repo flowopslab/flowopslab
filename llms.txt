@@ -27,6 +27,14 @@ FlowOps Lab sells same-day, tightly scoped technical work with public proof, pla
 - Deliverable: requirement mapping, PR review surface summary, merge blocker notes, and optional small fix patch for confirmed gaps.
 - Public proof review: https://github.com/flowopslab/flowopslab/blob/main/bounties/openisopix-pr3-review.md
 
+### AI automation / DevOps triage sprint
+
+- Price: $50 USDT/USDC
+- Page: https://polyflow-samples.netlify.app/services.html
+- Form name: service-request
+- Good fit: GitHub Actions failures, Python automation scripts, agent workflow glue, CI smoke-test gaps, n8n/webhook handoffs, or DevOps runbook cleanup.
+- Deliverable: root-cause note, one narrow patch or workflow design where possible, verification commands/results, and handoff checklist.
+
 ### n8n workflow automation sprint
 
 - Price: $50 USDT/USDC
