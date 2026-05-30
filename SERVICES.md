@@ -76,6 +76,24 @@ Wallet for USDT/USDC on EVM: `0x8B9D88f5868B5D576524Abd53a4325F120e9aD2b`
 
 Request page: https://polyflow-samples.netlify.app/services.html
 
+## Spreadsheet QA / Google Sheets Evaluator Sprint
+
+For one focused spreadsheet QA, Excel evaluator, Google Sheets evaluator, formula audit, or consumer-facing workbook review.
+
+Typical deliverables:
+
+- Formula and logic issue notes
+- Broken formatting or validation findings
+- Duplicate and missing-field checks
+- Source links where public verification is needed
+- Cleaned sample rows or a concise QA report
+
+Pricing: $50 for one focused spreadsheet QA / Google Sheets evaluator sprint.
+
+Wallet for USDT/USDC on EVM: `0x8B9D88f5868B5D576524Abd53a4325F120e9aD2b`
+
+Request page: https://polyflow-samples.netlify.app/services.html
+
 ## n8n Workflow Automation
 
 For one focused workflow that needs a clear trigger, one destination, and a tested success path.
