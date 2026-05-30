@@ -42,6 +42,22 @@ Pricing: usually $50 for a focused setup.
 
 Wallet for USDT/USDC on EVM: `0x8B9D88f5868B5D576524Abd53a4325F120e9aD2b`
 
+## AI Automation / DevOps Triage Sprint
+
+For one focused automation or infrastructure issue where a short technical sprint can find the cause and leave a usable fix path.
+
+Typical deliverables:
+
+- GitHub Actions or CI failure triage
+- Python automation script cleanup
+- Agent workflow glue
+- DevOps runbook or verification checklist
+- One narrow patch or workflow design where possible
+
+Pricing: $50 for one focused AI automation / DevOps triage sprint.
+
+Request page: https://polyflow-samples.netlify.app/services.html
+
 ## n8n Workflow Automation
 
 For one focused workflow that needs a clear trigger, one destination, and a tested success path.
