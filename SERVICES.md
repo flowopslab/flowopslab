@@ -58,6 +58,24 @@ Pricing: $50 for one focused AI automation / DevOps triage sprint.
 
 Request page: https://polyflow-samples.netlify.app/services.html
 
+## Web Research / Lead-list QA Sprint
+
+For one focused web research, lead-list QA, competitor scan, source verification, or public-data cleanup task.
+
+Typical deliverables:
+
+- Deduplicated lead or company list
+- Source links and notes
+- Basic fit/priority tagging
+- Missing-field or bad-record cleanup
+- Short methodology and limits note
+
+Pricing: $50 for one focused web research / lead-list QA sprint.
+
+Wallet for USDT/USDC on EVM: `0x8B9D88f5868B5D576524Abd53a4325F120e9aD2b`
+
+Request page: https://polyflow-samples.netlify.app/services.html
+
 ## n8n Workflow Automation
 
 For one focused workflow that needs a clear trigger, one destination, and a tested success path.
