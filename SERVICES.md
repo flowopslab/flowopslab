@@ -59,6 +59,23 @@ Pricing: $50 for one focused n8n workflow.
 
 Request page: https://polyflow-samples.netlify.app/n8n-automation.html
 
+## OSS Bounty / CI Patch Sprint
+
+For one focused public-repo issue that needs CI, test, Makefile, GitHub Actions, GitLab CI, or workflow repair.
+
+Typical deliverables:
+
+- One patch-ready change
+- Local verification commands and results
+- Maintainer handoff notes
+- Scope limits and follow-up risks
+
+Pricing: $50 for one focused public-repo sprint.
+
+Request page: https://polyflow-samples.netlify.app/oss-bounty-patch.html
+
+Recent public proof patch: https://raw.githubusercontent.com/flowopslab/flowopslab/main/bounties/qtop-433-ci-sample-validation.patch
+
 ## Historical Polymarket Analysis
 
 For historical market-flow snapshots using public and provided transaction data.
@@ -78,5 +95,3 @@ Boundary: historical analysis only. No betting advice, no financial advice, no p
 ## Request Work
 
 Website: https://polyflow-samples.netlify.app/services.html
-
-Email: karawatkin772@gmail.com
