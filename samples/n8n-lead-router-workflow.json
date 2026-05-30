@@ -1,0 +1,88 @@
+{
+  "name": "FlowOps Lead Intake Router",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "flowops-lead-intake",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "0fca20a8-d3f3-41cc-bbc5-20b51d9f9070",
+      "name": "Webhook Intake",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-600, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json || {};\nconst body = input.body || input;\nconst now = new Date().toISOString();\nconst name = String(body.name || body.full_name || body.company || 'New lead').trim();\nconst contact = String(body.contact || body.email || body.telegram || '').trim();\nconst request = String(body.request || body.message || body.details || '').trim();\nreturn [{ json: { received_at: now, name, contact, request, source: 'flowops-lead-intake', ready_for_review: Boolean(contact && request) } }];"
+      },
+      "id": "db954f8f-9db7-4570-947a-d785a69a0ce3",
+      "name": "Normalize Lead",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-360, 0]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$json.ready_for_review}}",
+              "value2": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "90ce14cb-9059-44fd-8054-120a6c15a8d2",
+      "name": "Has Contact And Request",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [-120, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { ok: true, status: 'accepted', lead: $json } }}",
+        "options": {}
+      },
+      "id": "70bffdb9-b54f-4ff8-82f3-f264460c3c75",
+      "name": "Respond Accepted",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [140, -100]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { ok: false, status: 'needs_contact_and_request', received: $json } }}",
+        "options": {}
+      },
+      "id": "53f4bef2-54f7-442b-b771-f637f0d5a71b",
+      "name": "Respond Needs More Detail",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [140, 120]
+    }
+  ],
+  "connections": {
+    "Webhook Intake": {
+      "main": [[{"node": "Normalize Lead", "type": "main", "index": 0}]]
+    },
+    "Normalize Lead": {
+      "main": [[{"node": "Has Contact And Request", "type": "main", "index": 0}]]
+    },
+    "Has Contact And Request": {
+      "main": [
+        [{"node": "Respond Accepted", "type": "main", "index": 0}],
+        [{"node": "Respond Needs More Detail", "type": "main", "index": 0}]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}
