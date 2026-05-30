@@ -9,6 +9,7 @@ FlowOps Lab is built for people who need a practical fix today: a messy CSV clea
 - Data cleanup and spreadsheet repair
 - Landing page teardown and same-day copy fixes
 - Lightweight lead intake forms and Telegram bot setup
+- n8n workflow automation for one focused trigger-to-output flow
 - Small workflow automation
 - Historical Polymarket market-flow analysis
 
@@ -28,6 +29,7 @@ Confirm the EVM network before sending.
 ## Contact
 
 - Website: https://polyflow-samples.netlify.app/services.html
+- n8n automation: https://polyflow-samples.netlify.app/n8n-automation.html
 - Email: karawatkin772@gmail.com
 - X: https://x.com/flowopslab
 - Telegram samples: https://t.me/PolyFlowSamples
