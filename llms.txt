@@ -20,6 +20,13 @@ FlowOps Lab sells same-day, tightly scoped technical work with public proof, pla
 - Deliverable: one patch-ready change, local verification commands and results, maintainer handoff notes, and scope limits.
 - Public proof patch: https://raw.githubusercontent.com/flowopslab/flowopslab/main/bounties/qtop-433-ci-sample-validation.patch
 
+### OSS bounty review / fix sprint
+
+- Price: $50 USDT/USDC
+- Good fit: one public bounty issue or open PR needing checklist review, maintainer handoff, smoke-test planning, Godot/GDScript review-assist, or a narrow follow-up patch.
+- Deliverable: requirement mapping, PR review surface summary, merge blocker notes, and optional small fix patch for confirmed gaps.
+- Public proof review: https://github.com/flowopslab/flowopslab/blob/main/bounties/openisopix-pr3-review.md
+
 ### n8n workflow automation sprint
 
 - Price: $50 USDT/USDC
