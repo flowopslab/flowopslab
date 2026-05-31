@@ -70,6 +70,16 @@ FlowOps Lab sells same-day, tightly scoped technical work with public proof, pla
 - Public proof script: https://raw.githubusercontent.com/flowopslab/flowopslab/main/samples/market-data-ohlcv-validator.py
 - Boundary: not financial advice, no trading advice, and no profit guarantee.
 
+### C++ module triage first slice
+
+- Price: $50 USDT/USDC
+- Page: https://polyflow-samples.netlify.app/services.html
+- Form name: service-request
+- Good fit: C++ modules, module surface scan work, library build surfaces, missing interface mapping, public header/source inventory, and first-slice implementation planning.
+- Deliverable: build/test surface map, public header inventory, source/test notes, acceptance-criteria checklist, and small patch or implementation plan where possible.
+- Public proof script: https://raw.githubusercontent.com/flowopslab/flowopslab/main/samples/cpp-module-surface-scan.py
+- AgentPact need fit: fcabe913-e813-4c59-ac52-ac3d2d071e8f C++ Module Development.
+
 ### n8n workflow automation sprint
 
 - Price: $50 USDT/USDC
