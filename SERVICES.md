@@ -108,6 +108,8 @@ Typical deliverables:
 
 Pricing: $50 for one focused Python backtest / strategy-code debugging sprint.
 
+Public proof script: https://raw.githubusercontent.com/flowopslab/flowopslab/main/samples/strategy-code-debug-check.py
+
 Boundary: code debugging only; not financial advice, no trading advice, and no profit guarantee.
 
 Wallet for USDT/USDC on EVM: `0x8B9D88f5868B5D576524Abd53a4325F120e9aD2b`
