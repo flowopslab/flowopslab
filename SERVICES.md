@@ -136,6 +136,28 @@ Wallet for USDT/USDC on EVM: `0x8B9D88f5868B5D576524Abd53a4325F120e9aD2b`
 
 Request page: https://polyflow-samples.netlify.app/services.html
 
+## C++ Module Triage First Slice
+
+For one focused C++ module, library, module surface scan, or build-surface task where a buyer needs a same-day first slice before committing to a larger implementation.
+
+Typical deliverables:
+
+- Build and test surface map
+- Public header and source inventory
+- Missing-interface or missing-test notes
+- Risk and acceptance-criteria checklist
+- Small patch or implementation plan where possible
+
+Pricing: $50 for one focused C++ module triage first slice.
+
+Public proof script: https://raw.githubusercontent.com/flowopslab/flowopslab/main/samples/cpp-module-surface-scan.py
+
+AgentPact need fit: fcabe913-e813-4c59-ac52-ac3d2d071e8f C++ Module Development.
+
+Wallet for USDT/USDC on EVM: `0x8B9D88f5868B5D576524Abd53a4325F120e9aD2b`
+
+Request page: https://polyflow-samples.netlify.app/services.html
+
 ## n8n Workflow Automation
 
 For one focused workflow that needs a clear trigger, one destination, and a tested success path.
