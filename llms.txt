@@ -58,6 +58,7 @@ FlowOps Lab sells same-day, tightly scoped technical work with public proof, pla
 - Form name: service-request
 - Good fit: Python backtest scripts, rotation strategy code, portfolio data pipeline bugs, pandas/numpy cleanup, reproducibility gaps, and testable strategy-code debugging.
 - Deliverable: reproducible bug report, one narrow patch where possible, test command, data-shape notes, and code-level handoff.
+- Public proof script: https://raw.githubusercontent.com/flowopslab/flowopslab/main/samples/strategy-code-debug-check.py
 - Boundary: not financial advice, no trading advice, and no profit guarantee.
 
 ### Market-data / OHLCV validation sprint
