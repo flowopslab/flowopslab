@@ -1,8 +1,12 @@
 # FlowOps Lab
 
-Same-day data cleanup, landing page fixes, and lightweight automation for small, scoped jobs.
+Same-day $50 automation, data, OSS/CI, n8n, and code-fix sprints with public proof scripts.
 
 FlowOps Lab is built for people who need a practical fix today: a messy CSV cleaned, a landing page tightened, a lead form wired up, a Telegram intake bot configured, or a historical market-flow snapshot turned into a readable report.
+
+Discovery file: https://github.com/flowopslab/flowopslab/blob/main/DISCOVERY.md
+
+Machine-readable service manifest: https://raw.githubusercontent.com/flowopslab/flowopslab/main/llms.txt
 
 ## Services
 
